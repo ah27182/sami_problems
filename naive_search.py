@@ -5,7 +5,7 @@ from bcolors import bcolors
 def quote(string):
     return "'" + string + "'"
 
-def color(string, color):
+def theme(string, color):
     return color + string + bcolors.ENDC
 
 
@@ -21,7 +21,7 @@ with open(sys.argv[1], 'r') as f:
     
     while char:
         if beg == target_str:
-            print('\n' + color(quote(sys.argv[2]),bcolors.OKBLUE) + color(" was found in ", bcolors.OKGREEN) + color(sys.argv[1],bcolors.BOLD) + '\n')
+            print('\n' + theme(quote(sys.argv[2]),bcolors.OKBLUE) + theme(" was found in ", bcolors.OKGREEN) + theme(sys.argv[1],bcolors.BOLD))
             answer = True
             break
         
@@ -29,8 +29,8 @@ with open(sys.argv[1], 'r') as f:
         char = f.read(1)
     
     if not answer:
-        print('\n' + color(quote(sys.argv[2]),bcolors.OKBLUE) + color(" was not found in ", bcolors.FAIL) + color(sys.argv[1],bcolors.BOLD) + '\n')
+        print('\n' + theme(quote(sys.argv[2]),bcolors.OKBLUE) + theme(" was not found in ", bcolors.FAIL) + theme(sys.argv[1],bcolors.BOLD))
 
 end = time() - start
 
-print("Process took:{:6.2f} sec".format(end))
+print("Process took:{:6.2f} sec\n".format(end))
