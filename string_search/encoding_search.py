@@ -18,10 +18,8 @@ start = time()
 
 with open(sys.argv[1], 'r') as f:
 
-    s=time()
     buf = f.read(target_length)
     encoded_buf = str_encode(buf)
-    print(time() - s)
 
     iter_chr = f.read(1)
     
