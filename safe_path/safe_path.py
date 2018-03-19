@@ -8,11 +8,11 @@ from pqueue import PriorityQueue
 fig = plt.figure()
 ax = plt.axes(xlim=(0, 100), ylim=(0, 100), aspect='equal')
 
-N = 100
+N = 400
 circle_x = np.random.rand(N)*100
 circle_y = np.random.rand(N)*100
 colors = np.random.rand(N)
-radii = np.random.rand(N)*8
+radii = np.random.rand(N)*4
 
 for x,y,r in zip(circle_x, circle_y, radii):
     ax.add_artist(plt.Circle((x,y),r,lw=1,fill = False))
@@ -76,9 +76,8 @@ ax.add_artist(line_seg)
 def animate(i):
     iter_path.append(path[i])
     line_seg.set_segments(iter_path)
-
     return line_seg,
 
 anim = animation.FuncAnimation(fig, animate, frames = len(path), interval=20, repeat=False, blit=True)
-
+print(anim.to_html5_video())
 plt.show()
