@@ -1,5 +1,5 @@
 # sami_problems
-Practice problems with my friend Sami.
+ Practice problems with my friend Sami.
 
 Problems | Descriptions
 :--- | :---
