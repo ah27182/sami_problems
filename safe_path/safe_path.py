@@ -79,5 +79,4 @@ def animate(i):
     return line_seg,
 
 anim = animation.FuncAnimation(fig, animate, frames = len(path), interval=20, repeat=False, blit=True)
-print(anim.to_html5_video())
 plt.show()
