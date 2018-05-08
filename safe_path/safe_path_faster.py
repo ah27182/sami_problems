@@ -84,5 +84,5 @@ def animate(i):
 
     return line_seg,
 
-anim = animation.FuncAnimation(fig, animate, frames = len(path), interval=10, repeat=False, blit=True)
+anim = animation.FuncAnimation(fig, animate, frames = len(path), interval=30, repeat=False, blit=True)
 plt.show()
