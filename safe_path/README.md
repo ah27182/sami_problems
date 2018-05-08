@@ -10,5 +10,5 @@ The `safe_path.py` solution uses a variant of UCS that has the x-distance of a p
 ![Alt Text](https://media.giphy.com/media/ddnzFx3r0W9tjXsKDc/giphy.gif)
 
 
-While the `faster_safe_path.py` actaully attempts to find a path, using only the mines, which can traverse from top to bottom. If such a path exsists, then that must mean there is no way to cross the field safely.
+While `faster_safe_path.py` actually attempts to find a path, using only the mines, which can traverse from top to bottom. If such a path exsists, then that must mean there is no way to cross the field safely.
 ![Alt Text](https://media.giphy.com/media/2zZOjNOAkmC2pZfoU3/giphy.gif)
