@@ -8,7 +8,7 @@ from pqueue import PriorityQueue
 fig = plt.figure()
 ax = plt.axes(xlim=(0, 100), ylim=(0, 100), aspect='equal')
 
-N = 600
+N = 700
 circle_x = np.random.rand(N)*100
 circle_y = np.random.rand(N)*100
 colors = np.random.rand(N)
@@ -43,32 +43,46 @@ path = []
 stack = []
 discovered = set()
 
+dfs_tree = {}
+
 def search():
     for circle in top:
         stack.append(circle)
 
         while stack:
             c = stack.pop()
-            path.append(c)
+            
+            if c in discovered:
+                continue
+
+            if c in dfs_tree:
+                path.append(dfs_tree[c])
+
+            discovered.add(c)
 
             if c[1] - c[2] <= 0:
                 return
 
-            if c not in discovered:
-                discovered.add(c)
+            for c1 in circles:
+                if intersect(c, c1):
 
-                for c1 in circles:
-                    if c == c1:
-                        continue
+                    stack.append(c1)
 
-                    if intersect(c, c1):
-                        stack.append(c1)
+                    dfs_tree[c1] = [c[:2],c1[:2]]
 
 search()
 
-def animate(i):
-    artist[path[i]].set_color('b')
-    return []
 
-anim = animation.FuncAnimation(fig, animate, frames = len(path), interval=5, repeat=False, blit=True)
+iter_path = []
+line_seg = mc.LineCollection(iter_path, linewidths=1,colors='r')
+ax.add_artist(line_seg)
+
+def animate(i):
+    print(path[i])
+    iter_path.append(path[i])
+    line_seg.set_segments(iter_path)
+
+    return line_seg,
+
+anim = animation.FuncAnimation(fig, animate, frames = len(path), interval=10, repeat=False, blit=True)
 plt.show()
