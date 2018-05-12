@@ -78,7 +78,6 @@ line_seg = mc.LineCollection(iter_path, linewidths=1,colors='r')
 ax.add_artist(line_seg)
 
 def animate(i):
-    print(path[i])
     iter_path.append(path[i])
     line_seg.set_segments(iter_path)
 
